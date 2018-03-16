@@ -104,7 +104,7 @@ def tMaker(tinfo):
 
 class ContactDB(object):
     def __init__(self, dbname=':memory:'):
-        self.conn = sqlite3.connect(dbname)
+        self.conn = sqlite3.connect(dbname, check_same_thread=False)
         self.conn.text_factory = str
         self.cursor = self.conn.cursor()
     
