@@ -15,7 +15,7 @@ if __name__ == '__main__':
     
     dbname = sys.argv[1]
     outfile = os.path.join(os.path.dirname(dbname), 'groupqq')
-    conn = sqlite3.connect(dbname)
+    conn = sqlite3.connect(dbname, check_same_thread=False)
     conn.text_factory = str
     cursor = conn.cursor()
     cursor.execute("SELECT qq,nick FROM 'group'")
